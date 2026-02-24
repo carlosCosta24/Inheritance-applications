@@ -82,6 +82,37 @@ namespace Inheritance_applications
                 Console.WriteLine("Derived class is winking :-)");
             }
         }
+        public class clsHuman { 
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+
+            public int Age { get; set; }
+
+            public void Speak() {
+
+                Console.WriteLine($"Hi my name is: {FirstName} and i have {Age} years old");
+            }
+        }
+        public class clsSex : clsHuman { 
+            
+            public string sex { get; set; }
+
+            public void Intreduce() {
+
+                Console.WriteLine($"I {FirstName} {LastName} i have {Age} years, Iam a {sex}");
+            }
+        }
+
+        public class clsMember : clsSex { 
+        
+            public int Id { get; set; }
+            public string Randk { get; set; }
+
+            public void Show() { 
+                Console.WriteLine($"I am the member number: {Id}, with rank: {Randk} My Name is: {FirstName} {LastName} i have: {Age} years, Iam a: {sex}");
+
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -127,7 +158,7 @@ namespace Inheritance_applications
             
             Employee.Greet();
             */
-            
+           /* 
             clsA ObjA = new clsA();
             Console.WriteLine("Base object: ");
             ObjA.Print();
@@ -143,7 +174,18 @@ namespace Inheritance_applications
             clsA UpCasting = new clsB();
             UpCasting.Print();
             UpCasting.wink();
+           */
+           clsMember FirstMember = new clsMember();
+            FirstMember.FirstName = "Carlos";
+            FirstMember.LastName = "Costa";
+            FirstMember.Age = 20;
+            FirstMember.sex = "M";
+            FirstMember.Randk = "A+";
+            FirstMember.Id = 1;
 
+            FirstMember.Intreduce();
+            FirstMember.Show();
+            FirstMember.Speak();
             Console.ReadKey();
 
 
