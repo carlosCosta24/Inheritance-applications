@@ -62,11 +62,32 @@ namespace Inheritance_applications
                 base.Greet();
             }
         }
+        public class clsA {
+            public virtual void Print() 
+            { 
+                Console.WriteLine("Hello from the base class");
+            }
+            public virtual void wink()
+            {
+                Console.WriteLine("Base class is winking :-)");
+            }
+        }
+        public class clsB: clsA {
+            public override void Print()
+            {
+                Console.WriteLine("Hello form the derived class");
+            }
+            public new void wink() 
+            {
+                Console.WriteLine("Derived class is winking :-)");
+            }
+        }
+
         static void Main(string[] args)
         {
-            clsEmployee Employee = new clsEmployee(10,"Carlos","Costa","MR",5000,"Engineering", "google");
+            //clsEmployee Employee = new clsEmployee(10,"Carlos","Costa","MR",5000,"Engineering", "google");
 
-            Console.WriteLine("Printing the Object...");
+            //Console.WriteLine("Printing the Object...");
 
            /*
             //person inherited 
@@ -80,7 +101,7 @@ namespace Inheritance_applications
             Employee.DepartmentName = "Engineering";
             Employee.Salary = 5000;
             */
-            Console.WriteLine("ID: {0}", Employee.Id);
+            /*Console.WriteLine("ID: {0}", Employee.Id);
             Console.WriteLine("Title: {0}", Employee.Title);
             Console.WriteLine("Full Name: {0}", Employee.FullName);
             Console.WriteLine("Department Name: {0}", Employee.DepartmentName);
@@ -88,8 +109,9 @@ namespace Inheritance_applications
 
             Employee.IncreaseSalaryBy(120);
             Console.WriteLine("After Salary Increase: {0}", Employee.Salary);
-
+            */
             //upcasting 
+            /*
             clsEmployee Employee2 = new clsEmployee ( 58, "Kique", "flipe","Mr",4200,"Customer service", "mersk");
             clsPerson UpCasting = Employee2;
             UpCasting.Greet();
@@ -102,9 +124,27 @@ namespace Inheritance_applications
             //overriding
             clsPerson Carlos = new clsPerson(80, "Carlos", "Falco", "Mr");
             Carlos.Greet();
+            
             Employee.Greet();
+            */
+            
+            clsA ObjA = new clsA();
+            Console.WriteLine("Base object: ");
+            ObjA.Print();
+            ObjA.wink();
 
+            clsB ObjB = new clsB();
+            Console.WriteLine("Derived class: ");
+            ObjB.Print();
+            ObjB.wink();
 
+            //casting 
+            Console.WriteLine("Casting to the base class: ");
+            clsA UpCasting = new clsB();
+            UpCasting.Print();
+            UpCasting.wink();
+
+            Console.ReadKey();
 
 
 
