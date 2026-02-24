@@ -32,7 +32,7 @@ namespace Inheritance_applications
                   return  FirstName + " " + LastName;
                 }
             }
-            public void Greet()
+            public virtual void Greet()
             {
                 Console.WriteLine($"Hi there I'm {FullName} and my title is: {Title}");
             }
@@ -54,6 +54,12 @@ namespace Inheritance_applications
             }
             public void Work() {
                 Console.WriteLine($"Hi, I work in {Company} and my monthly income is {Salary}");
+            }
+            public override void Greet()
+            {
+                Console.WriteLine("Hello from the derived class");
+                //accessing the print in the base class
+                base.Greet();
             }
         }
         static void Main(string[] args)
@@ -91,7 +97,13 @@ namespace Inheritance_applications
             //downCasting
             clsPerson Person3 = new clsEmployee(13, "Karmen", "Falco", "Mrs", 2500, "Markting", "Firrera costa");
             clsEmployee Employee3 = (clsEmployee) Person3;
-            Employee3.Work();   
+            Employee3.Work();
+
+            //overriding
+            clsPerson Carlos = new clsPerson(80, "Carlos", "Falco", "Mr");
+            Carlos.Greet();
+            Employee.Greet();
+
 
 
 
