@@ -142,6 +142,30 @@ namespace Inheritance_applications
             }
 
         }
+        public abstract class Person { 
+            public int Id { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+
+            public abstract void Greet();
+
+            public void SayBye() {
+                Console.WriteLine("Good bye");
+            }
+        }
+        public class Engineer : Person { 
+            
+            public string Department { get; set; }
+            public string Level { get; set; }    
+
+            public double Salary { get; set; }
+
+            public override void Greet()
+            {
+                Console.WriteLine($"Hi I'am {FirstName} {LastName},my Id is:{Id}, the Engineer responsible " +
+                    $"of the {Department}, with Level: {Level} and salary of: {Salary}");
+            }
+        }
 
 
         
@@ -218,7 +242,7 @@ namespace Inheritance_applications
             FirstMember.Show();
             FirstMember.Speak();
           */
-          clsFront Chrome = new clsFront();
+          /*clsFront Chrome = new clsFront();
             Chrome.Browser = "Chrome";
             Chrome.Space = 10;
             Chrome.Id = 1205;
@@ -231,8 +255,15 @@ namespace Inheritance_applications
             Next.Api = "Nuxt";
             Next.Info();
             Next.Process();
-
-
+          */
+          Engineer Carlos = new Engineer();
+            Carlos.Id = 245;
+            Carlos.FirstName = "Carlos";
+            Carlos.LastName = "Costa";
+            Carlos.Salary = 758622;
+            Carlos.Department = "Infrastructure";
+            Carlos.Level = "Senior";
+            Carlos.Greet();
 
 
             Console.ReadKey();
