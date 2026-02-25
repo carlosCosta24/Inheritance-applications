@@ -114,6 +114,37 @@ namespace Inheritance_applications
             }
         }
 
+        public class clsInfra { 
+            public int Id { get; set; }
+            public void Process()
+            {
+                Console.WriteLine($"the process id is : {Id}");
+            }
+
+        }
+        class clsFront : clsInfra {
+        
+            public float Space { get; set; }
+            public string Browser { get; set; }
+
+            public void Info() {
+                Console.WriteLine($"Hi form the process {Id}, with space of {Space} GB, working on the {Browser}");
+            }
+        }
+        class clsBack : clsInfra
+        {
+            public string Api { get; set; }
+
+            public string Health { get; set; }
+            public void Info()
+            {
+                Console.WriteLine($"Hi form the process {Id}, with Health of {Health}, working on the {Api}");
+            }
+
+        }
+
+
+        
         static void Main(string[] args)
         {
             //clsEmployee Employee = new clsEmployee(10,"Carlos","Costa","MR",5000,"Engineering", "google");
@@ -175,7 +206,7 @@ namespace Inheritance_applications
             UpCasting.Print();
             UpCasting.wink();
            */
-           clsMember FirstMember = new clsMember();
+          /* clsMember FirstMember = new clsMember();
             FirstMember.FirstName = "Carlos";
             FirstMember.LastName = "Costa";
             FirstMember.Age = 20;
@@ -186,6 +217,24 @@ namespace Inheritance_applications
             FirstMember.Intreduce();
             FirstMember.Show();
             FirstMember.Speak();
+          */
+          clsFront Chrome = new clsFront();
+            Chrome.Browser = "Chrome";
+            Chrome.Space = 10;
+            Chrome.Id = 1205;
+            Chrome.Info();
+            Chrome.Process();
+
+            clsBack Next = new clsBack();
+            Next.Id = 4528;
+            Next.Health = "Good";
+            Next.Api = "Nuxt";
+            Next.Info();
+            Next.Process();
+
+
+
+
             Console.ReadKey();
 
 
