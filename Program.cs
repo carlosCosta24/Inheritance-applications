@@ -243,6 +243,33 @@ namespace Inheritance_applications
             }
         }
 
+        class clsFirst 
+        {
+            public int x;
+            public int y;
+            clsEconomy ObjectEco = new clsEconomy();
+            public void Print() 
+            {
+                Console.WriteLine("hello form the FirstClass ");
+            }
+            public void CallSecond()
+            {
+                Console.WriteLine("Calling method2 from class Economy ");
+            }
+
+            public void CallEco() { 
+            
+                ObjectEco.Greet();
+            }
+            
+        }
+        class clsEconomy 
+        {
+            public void Greet() 
+            {
+                Console.WriteLine("Economy class is saying hi");            
+            }
+        }
 
 
         
@@ -355,12 +382,16 @@ namespace Inheritance_applications
             Carlos.Status("Achiver");
             */
 
-            clsContainer Container = new clsContainer(563);
+            /*clsContainer Container = new clsContainer(563);
             clsContainer.clsInner Inner = new clsContainer.clsInner(857);
 
             Container.Greet();
             Inner.Greet();
-            Inner.AccessContainerId(Container);
+            Inner.AccessContainerId(Container);*/
+
+            clsFirst Obj1 = new clsFirst();
+            Obj1.Print();
+            Obj1.CallEco();
 
             Console.ReadKey();
 
