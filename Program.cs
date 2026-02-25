@@ -211,6 +211,37 @@ namespace Inheritance_applications
 
             }
         }
+        class clsContainer {
+            private int ContainerId;
+            public clsContainer(int ContainerId) 
+            {
+                this.ContainerId = ContainerId;
+                
+            }
+            public void Greet() 
+            {
+                Console.WriteLine("Hello from the Container class");
+            }
+            public class clsInner { 
+                private int InnerId;
+
+            public clsInner(int InnerId) 
+            { 
+                this.InnerId = InnerId;
+                
+
+            }
+            public void Greet()
+            {
+                    Console.WriteLine("Hello From the inner class");
+            }
+            public void AccessContainerId(clsContainer Container) 
+            {
+                    Console.WriteLine("Accessing the Container id from the inner class: " + Container.ContainerId);
+            }
+
+            }
+        }
 
 
 
@@ -312,7 +343,7 @@ namespace Inheritance_applications
             Carlos.Level = "Senior";
             Carlos.Greet();
           */
-
+          /*
             clsSWE Carlos = new clsSWE();
             Carlos.Department = "Web";
             Carlos.FirstName = "Carlos";
@@ -322,7 +353,14 @@ namespace Inheritance_applications
                 Carlos.Deploy = "Complet";
                 Carlos.FinalResult();
             Carlos.Status("Achiver");
-            
+            */
+
+            clsContainer Container = new clsContainer(563);
+            clsContainer.clsInner Inner = new clsContainer.clsInner(857);
+
+            Container.Greet();
+            Inner.Greet();
+            Inner.AccessContainerId(Container);
 
             Console.ReadKey();
 
