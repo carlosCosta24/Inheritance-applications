@@ -176,17 +176,39 @@ namespace Inheritance_applications
             void Identfy();
             void Status(string StatusLevel);
         }
-        public class clsSWE : IEngineer { 
-        
+        public interface ITask { 
+             string Build {  get; set; }
+            string Test { get; set; }
+            
+            string Deploy {  get; set; }
+
+            void FinalResult();
+
+
+        }
+        public class clsSWE : IEngineer, ITask
+        {
+
             public string FirstName { set; get; }
             public string LastName { set; get; }
             public string Department { get; set; }
 
-            public void Identfy() {
+            public void Identfy()
+            {
                 Console.WriteLine("Hi From Implementation");
             }
-            public void Status(string Status) {
+            public void Status(string Status)
+            {
                 Console.WriteLine($"THis SWE have {Status} Status, in According with the last performance reviw");
+            }
+            public string Build { get; set; }
+            public string Test { get; set; }
+            public string Deploy { get; set; }
+
+            public void FinalResult()
+            {
+                Console.WriteLine($"The Final Result after Building: {Build},Testing: {Test}, and Deploying: {Deploy} is Success");
+
             }
         }
 
@@ -295,6 +317,10 @@ namespace Inheritance_applications
             Carlos.Department = "Web";
             Carlos.FirstName = "Carlos";
             Carlos.LastName = "Costa";
+                Carlos.Build = "Complet";
+                Carlos.Test = "Complet";
+                Carlos.Deploy = "Complet";
+                Carlos.FinalResult();
             Carlos.Status("Achiver");
             
 
