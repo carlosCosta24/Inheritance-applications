@@ -89,10 +89,11 @@ namespace Inheritance_applications
 
             public int Age { get; set; }
 
-            public void Speak() {
+            public virtual void Speak() {
 
                 Console.WriteLine($"Hi my name is: {FirstName} and i have {Age} years old");
             }
+
         }
         public class clsSex : clsHuman { 
             
@@ -268,6 +269,16 @@ namespace Inheritance_applications
             public void Greet() 
             {
                 Console.WriteLine("Economy class is saying hi");            
+            }
+        }
+        // sealed class, can't be inhert, extend, or modify
+        sealed class clsSecret { 
+        }
+        public class clsPilot : clsHuman {
+            public sealed override void Speak()
+            {
+                //sealed method
+                Console.WriteLine("Pilot is wellcoming you on board, and wish you a nice trip");
             }
         }
 
