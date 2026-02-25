@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -153,10 +154,11 @@ namespace Inheritance_applications
                 Console.WriteLine("Good bye");
             }
         }
-        public class Engineer : Person { 
-            
+        public class Engineer : Person
+        {
+
             public string Department { get; set; }
-            public string Level { get; set; }    
+            public string Level { get; set; }
 
             public double Salary { get; set; }
 
@@ -166,6 +168,28 @@ namespace Inheritance_applications
                     $"of the {Department}, with Level: {Level} and salary of: {Salary}");
             }
         }
+        // Interface
+        public interface IEngineer {
+            string FirstName{ get; set; }
+            string LastName { get; set; }
+            string Department { get; set; }
+            void Identfy();
+            void Status(string StatusLevel);
+        }
+        public class clsSWE : IEngineer { 
+        
+            public string FirstName { set; get; }
+            public string LastName { set; get; }
+            public string Department { get; set; }
+
+            public void Identfy() {
+                Console.WriteLine("Hi From Implementation");
+            }
+            public void Status(string Status) {
+                Console.WriteLine($"THis SWE have {Status} Status, in According with the last performance reviw");
+            }
+        }
+
 
 
         
@@ -256,6 +280,7 @@ namespace Inheritance_applications
             Next.Info();
             Next.Process();
           */
+          /*
           Engineer Carlos = new Engineer();
             Carlos.Id = 245;
             Carlos.FirstName = "Carlos";
@@ -264,7 +289,14 @@ namespace Inheritance_applications
             Carlos.Department = "Infrastructure";
             Carlos.Level = "Senior";
             Carlos.Greet();
+          */
 
+            clsSWE Carlos = new clsSWE();
+            Carlos.Department = "Web";
+            Carlos.FirstName = "Carlos";
+            Carlos.LastName = "Costa";
+            Carlos.Status("Achiver");
+            
 
             Console.ReadKey();
 
