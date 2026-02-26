@@ -400,9 +400,13 @@ namespace Inheritance_applications
             Inner.Greet();
             Inner.AccessContainerId(Container);*/
 
-            clsFirst Obj1 = new clsFirst();
+            /*clsFirst Obj1 = new clsFirst();
             Obj1.Print();
             Obj1.CallEco();
+            */
+            MyClass PartialClass = new MyClass();
+            PartialClass.MethodOne();
+            PartialClass.MethodTwo();
 
             Console.ReadKey();
 
